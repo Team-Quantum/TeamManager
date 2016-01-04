@@ -64,26 +64,23 @@ class Core
     public function __construct()
     {
         $this->initDefines();
-        $this->setSettings();
-        $this->isMaintenance();
+        //$this->setSettings(); == initConfiguration
+        $this->initConfiguration();
+        //$this->isMaintenance();
         $this->initExceptionHandler();
         $this->initSmarty();
-        $this->initConfiguration();
         $this->initDatabases();
         $this->initTranslator();
         $this->initUserManager();
         $this->initApp();
 
-        Core::$instance = $this;
-    }
-
-    public function isMaintenance(){
+        // TODO: maintenance == TRUE -> smarty
         if($this->settings['page_settings']['maintenance'] === TRUE){
-            // TODO: URI HANDLING (mod_rewrite)
-            //$this->timedRefresh(1, 'maintenance.php');
-            require_once('maintenance.php');
-            die();
+            header('HTTP/1.1 503 Service Unavailable');
+            $this->smarty->assign('maintenance', 1);
         }
+
+        Core::$instance = $this;
     }
 
     /**
@@ -401,6 +398,7 @@ class Core
         if(!file_exists(ROOT_DIR . 'config.ini')) {
             echo 'No config.ini found. You\'ll be redirected to the Installation.';
             $this->timedRefresh(10, 'Install');
+            exit;
         }
 
         $this->settings = $this->parseINI(ROOT_DIR . 'config.ini');
@@ -413,7 +411,7 @@ class Core
     private function initSmarty() {
         $this->smarty = new \Smarty();
         $this->smarty->setTemplateDir(APP_DIR.'templates');
-        $this->smarty->setCompileDir(STORAGE_DIR.'compiled');
+        $this->smarty->setCompileDir(APP_DIR.'templates/compiled');
 
         $pluginDirectories = $this->smarty->getPluginsDir();
         $pluginDirectories[] = SYSTEM_DIR . 'Smarty';

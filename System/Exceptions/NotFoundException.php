@@ -13,4 +13,16 @@ use Exception;
 class NotFoundException extends Exception
 {
 
+    public $message;
+
+    /**
+     * NotFoundException constructor.
+     */
+    public function __construct()
+    {
+        $this->message = 'The page you try to access isn\'t here.';
+        // TODO: proper message
+    }
+
+
 }

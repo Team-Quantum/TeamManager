@@ -30,6 +30,8 @@ require_once('vendor/autoload.php');
 $core = new \TeamManager\Core();
 $core->execute();
 
+echo $core->getPathInfo();
+
 // TODO: password_hash & password_verify für login
 // TODO: registration mit key, den nur der admin einsehen kann + recaptcha
 

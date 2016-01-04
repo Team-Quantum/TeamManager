@@ -24,7 +24,6 @@ class Home extends BasePage
      */
     public function preRender($core, $smarty)
     {
-        $this->smarty->assign('site_template', 'home.tpl');
     }
 
     /**
@@ -35,6 +34,7 @@ class Home extends BasePage
      */
     public function getTemplate($core, $smarty)
     {
+        $this->smarty->assign('site_template', 'home.tpl');
     }
 
     /**
