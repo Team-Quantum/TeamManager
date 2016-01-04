@@ -1,0 +1,1 @@
+<div id="test">Hi, ich bin ein Test-Div, um die Funktionalit&auml;t von Smarty zu testen!</div>

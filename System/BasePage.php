@@ -85,6 +85,10 @@ abstract class BasePage {
         exit;
     }
 
+    public function _404(){
+        $this->core->displayNotFound();
+    }
+
     /**
      * Automatic called before smarty display is called
      * @param $core Core
