@@ -1,0 +1,33 @@
+{
+  "name": "TeamQuantum/TeamManager",
+  "description": "Simple and fast WEB-Manager for Teams",
+  "minimum-stability": "stable",
+  "license": "GPL v3",
+  "version": "0.0.1-dev",
+  "authors":[
+    {
+      "name": "RealPolluX",
+      "role": "Project Manager & Developer",
+      "email": "pollux@team-quantum.org",
+      "homepage": "http://www.team-quantum.org"
+    }
+  ],
+  "support": {
+    "forum": "http://board.team-quantum.org",
+    "source": "http://www.github.com/Team-Quantum/TeamManager",
+    "docs": "https://github.com/Team-Quantum/QuantumCMS/blob/master/README.md"
+  },
+  "require": {
+    "php": "^5.4",
+    "smarty/smarty": "3.1.x-dev",
+    "doctrine/orm": "2.6.x-dev",
+    "symfony/yaml": "2.8.x-dev",
+    "phpmailer/phpmailer": "v5.4.x-dev"
+  },
+  "autoload": {
+    "psr-4": {
+      "TeamManager\\": "System/",
+      "App\\": "App/"
+    }
+  }
+}
