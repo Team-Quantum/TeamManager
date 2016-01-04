@@ -11,9 +11,8 @@ Web Based Team Manager for Serverteams
 - nothing at this point
 
 ### How to install
-Quantum-CMS use composer for dependency management so if you clone this repository
+TeamManager use composer for dependency management so if you clone this repository
 you have to run first the following command `php composer.phar install`.
-If you download it from the release section you don't need to call this.
 
 The second step is to open the cms in your browser, then you will see the
 installation dialog.
