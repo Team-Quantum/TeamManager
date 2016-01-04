@@ -84,7 +84,7 @@ class Core
         // only for development
         // TODO: db creation doctrine
         // TODO: settings parsen per ini file
-        $this->smarty->debugging = $this->settings['in_dev'];
+        $this->smarty->debugging = $this->settings['page_settings']['in_dev'];
     }
 
     private function initDatabases() {
