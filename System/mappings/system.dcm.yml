@@ -1,0 +1,66 @@
+detect_relations: true
+
+User:
+  columns:
+    id:
+      type: integer(10)
+      primary: true
+      autoincrement: true
+    nick:
+      type: string(60)
+    name:
+      type: string(60)
+    email:
+      type: string(120)
+    password:
+      type: string(60)
+    skype:
+      type: string(20)
+    rank:
+      type: integer(2)
+    registered:
+      type: datetime
+    blocked:
+      type: integer(1)
+    last_login:
+      type: timestamp
+    last_ipv4:
+      type: string(15)
+
+Banned:
+  columns:
+    id:
+      type: integer(10)
+      primary: true
+      autoincrement: true
+    name:
+      type: string(50)
+    message:
+      type: string(255)
+    added:
+      type: datetime
+    submit_by:
+      type: integer(10)
+    until:
+      type: datetime
+  relations:
+    Warned:
+      local: submit_by
+
+Warned:
+  columns:
+    id:
+      type: integer(10)
+      primary: true
+      autoincrement: true
+    name:
+      type: string(50)
+    message:
+      type: string(255)
+    added:
+      type: datetime
+    submit_by:
+      type: integer(10)
+  relations:
+    User:
+      local: submit_by
